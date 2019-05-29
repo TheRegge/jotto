@@ -1,3 +1,5 @@
+import checkPropTypes from 'check-prop-types'
+
 /**
  * Return node(s) with the given data-test attribute.
  * @param {ShallowWrapper} wrappper - Enzyme shallow wrapper.
@@ -6,4 +8,14 @@
  */
 export const findByTestAttr = (wrappper, val) => {
     return wrappper.find(`[data-test="${val}"]`)
+}
+
+export const checkProps = (component, conformingProps) => {
+    const propError = checkPropTypes(
+        component.propTypes,
+        conformingProps,
+        'prop',
+        component.name
+    )
+    expect(propError).toBeUndefined()
 }
