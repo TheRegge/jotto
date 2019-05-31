@@ -1,8 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme'
 
-import { storeFactory } from '../test/testUtils'
-import App, { UnconnectedApp } from './App';
+import { storeFactory, findByTestAttr } from '../test/testUtils'
+import App, { UnconnectedApp } from './App'
+
 
 /**
  * @function setup
@@ -59,3 +60,5 @@ test('`getSecretWord` runs on App mount', () => {
 
   expect(getSecretWordCallCount).toBe(1)
 })
+
+
